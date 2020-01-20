@@ -1,0 +1,9 @@
+name: 'ESLint analysis'
+description: 'ESLint analysis'
+author: 'GitHub'
+inputs:
+    description: 'File to analyze'
+    required: true
+runs:
+  using: 'node12'
+  main: 'src/upload.js'
