@@ -15,8 +15,7 @@ async function run() {
     io.mkdirP(sarifFolder);
 
     let sarif_data = ' ';
-    const sarifFile = path.join(sarifFolder, 'eslint.sarif');
-    sarif_data = fs.readFileSync(sarifFile,'utf8');
+    sarif_data = fs.readFileSync(process.env['INPUT_SARIFFILE'],'utf8');
     
     const zipped_sarif = zlib.gzipSync(sarif_data).toString('base64');
 
