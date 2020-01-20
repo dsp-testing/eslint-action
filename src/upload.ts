@@ -11,7 +11,7 @@ import zlib from 'zlib';
 async function run() {
   try {
 
-    const sarifFolder = path.join(resultsFolder, 'sarif');
+    const sarifFolder = 'sarif';
     io.mkdirP(sarifFolder);
 
     let sarif_data = ' ';
