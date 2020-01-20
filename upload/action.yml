@@ -1,8 +1,9 @@
-name: 'ESLint analysis'
-description: 'ESLint analysis'
+name: 'ESLint upload'
+description: 'ESLint upload'
 author: 'GitHub'
 inputs:
-    description: 'File to analyze'
+  -sarifFile:
+    description: 'File to upload'
     required: true
 runs:
   using: 'node12'
