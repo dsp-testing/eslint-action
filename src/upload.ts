@@ -1,13 +1,31 @@
-import * as core from '@actions/core';
-import * as exec from '@actions/exec';
-import * as github from '@actions/github';
-
-import * as io from '@actions/io';
-import * as path from 'path';
-import * as fs from 'fs';
-
-import zlib from 'zlib';
-
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const core = __importStar(require("@actions/core"));
+const exec = __importStar(require("@actions/exec"));
+const github = __importStar(require("@actions/github"));
+const io = __importStar(require("@actions/io"));
+const path = __importStar(require("path"));
+const fs = __importStar(require("fs"));
+const zlib_1 = __importDefault(require("zlib"));
 async function run() {
   try {
 
@@ -17,7 +35,7 @@ async function run() {
     let sarif_data = ' ';
     sarif_data = fs.readFileSync(process.env['INPUT_SARIFFILE'],'utf8');
     
-    const zipped_sarif = zlib.gzipSync(sarif_data).toString('base64');
+    const zipped_sarif = zlib_1.gzipSync(sarif_data).toString('base64');
 
     const { GITHUB_TOKEN, GITHUB_REF } = process.env;
     if (GITHUB_TOKEN && GITHUB_REF) {
