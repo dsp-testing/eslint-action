@@ -7,4 +7,4 @@ inputs:
     required: true
 runs:
   using: 'node12'
-  main: '../src/upload.js'
+  main: '../src/upload.ts'
